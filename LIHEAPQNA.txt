@@ -1,0 +1,368 @@
+Title: Benefit Finder: LIHEAP
+Author: Suffolk Law Clinics
+Description: 
+Before:
+<style>
+body{
+	background:white;
+	background-image: url("https://suffolklitlab.github.io/images/babbage.jpg");
+	background-color: #fff;
+	background-repeat: repeat-x;
+	background-position: center -120px ;
+}
+#conversation {
+	max-width:900px;
+}
+#icon {
+	z-index:2;
+	margin: 40px auto 0px auto;
+	border-radius: 50%;
+	width:100px; 
+	height:100px; 
+	border: 4px solid #fff;
+	background-color: #fff;
+	background-size: 100px;
+	background-position: center;
+ 	background-repeat: no-repeat;
+	background-image: url('http://suffolklitlab.org/images/seal.jpg');
+}
+.title {
+	text-align:center;
+	border-bottom: solid 1px #888;
+	margin-top:10px;
+	padding-bottom:15px;
+}
+</style>
+<div id="icon"></div>
+<h2 class="title">
+	Benefit Finder <sup><font size=-1>Beta</font></sup>
+</h2>
+<p>This is a class project under active development by Suffolk's <a href="http://suffolklitlab.org/" target="_blank">LIT Lab</a>. You should not rely on it as a source of legal information. It is incomplete. It is intended to be used by students of the Suffolk Law Clinical Program. </p>
+<p> This QNA is meant to determine if you or your client may qualify for LIHEAP (Massachusett's Fuel Assistance Program). Please proceed through the following questions as if you are the individual attempting to apply for LIHEAP. </p>
+
+
+After: <script src="https://aambrogio.github.io/LIT-QNAs/scripts.js"></script>
+
+DOC(1):Action Items: LIHEAP
+Link to Benefit Finder: https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html
+
+Q(Begin): Would you like to check your eligibility for LIHEAP?
+A: Yes
+	Q(1.1):GOTO:Residency
+A: No
+	Q(1.2): You can find more information about LIHEAP at the Government website. <a href="https://www.mass.gov/service-details/low-income-home-energy-assistance-program-liheap">LIHEAP</a>. How do you wish to proceed?
+	A: I would like to save links for later.
+		DOC(1.2.1): 
+LIHEAP QNA Link for later (Copy/Paste Link): https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html
+LIHEAP Government Website Link for later (Copy/Paste Link): https://www.mass.gov/service-details/low-income-home-energy-assistance-program-liheap
+		Q(1.2.1):GOTO:LIHEAPQNALINK
+	A: I would like to keep going through this QNA now.
+		Q(1.2.2):GOTO:Residency
+	A: I'm all set.
+		Q(1.2.3):GOTO:AllSet
+A: Yes, I was redirected here from the Weatherization Assistance Program (WAP) QNA.
+	Q(1.3): Thank you for pausing your WAP QNA to determine your eligibility for LIHEAP. It is possible you were redirected here in the same browser. Do you need a link back to the WAP QNA for later?
+	A: Yes
+		DOC(1.3.1): 
+WAP QNA Link: https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html
+		Q(1.3.1): Here is the link to get you back to the WAP QNA (copy/paste). https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html. Are you ready to proceed?
+		A: Yes
+			Q(1.3.1.1):GOTO:Residency
+		A: No
+			Q(1.3.1.2):GOTO:AllSet
+	A: No
+		Q(1.3.2):GOTO:Residency
+
+Q(LIHEAPQNALINK): Here is the LIHEAP QNA link for later, <a href="https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html">LIHEAP QNA Link</a>. Would you like to open a draft email with some action items? 
+A: Yes
+	Q(2.1):GOTO:DRAFT
+A: No
+	Q(2.2):GOTO:AllSet
+
+Q(Residency): Are you currently living in Massachusetts, specifically at a fixed address? 
+A: Yes
+	Q(3.1):GOTO:Income
+A: No
+	Q(3.2): You do not qualify for LIHEAP in Massachusetts but you may qualify for it in your state of Residency. Each state has their own benefits program. Go to your state's ".gov" site in order to learn more about the benefits that your state offers.
+
+
+Q(Income): What is your total yearly household income (before taxes)? 
+X:number
+	DOC(4.1): 
+Income: <x>Income</x>
+	Q(Household): How many individuals are in your household, including yourself? (This would include yourself, your spouse, and any dependents, such as children, that you include on your tax returns).
+	X[javascript:if(fedpov(getvar('Household'),getvar('Income'),100)){goto('OneHundred')} else if(fedpov(getvar('Household'),getvar('Income'),125)){goto('OneTwentyFive')} else if(fedpov(getvar('Household'),getvar('Income'),150)){goto('OneFifty')} else if(fedpov(getvar('Household'),getvar('Income'),175)){goto('OneSeventyFive')} else if(fedpov(getvar('Household'),getvar('Income'),200)){goto('TwoHundred')}else{goto('PossibleSixty')}]:number
+		DOC(4.1.1): 
+Household: <x>Household</x>
+Q(OneHundred): Based on your income and household size, your family earns 100% or less of the Federal Poverty Guidelines. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(5.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(5.1.1): You can receive up to $1,100 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(5.1.1.1):GOTO:Zipcode
+		A: No
+			Q(5.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(5.1.2): You can receive up to $850 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(5.1.2.1):GOTO:Zipcode
+		A: No
+			Q(5.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(5.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(5.2.1): You can receive up to $770 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(5.2.1.1):GOTO:Zipcode
+		A: No
+			Q(5.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(5.2.2): You can receive up to $595 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(5.2.2.1):GOTO:Zipcode
+		A: No
+			Q(5.2.2.2):GOTO:HelpNeeded
+
+Q(OneTwentyFive): Based on your income and household size, your family earns 125% or less of the Federal Poverty Guidelines. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(6.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(6.1.1): You can receive up to $968 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(6.1.1.1):GOTO:Zipcode
+		A: No
+			Q(6.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(6.1.2): You can receive up to $748 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(6.1.2.1):GOTO:Zipcode
+		A: No
+			Q(6.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(6.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(6.2.1): You can receive up to $680 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(6.2.1.1):GOTO:Zipcode
+		A: No
+			Q(6.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(6.2.2): You can receive up to $525 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(6.2.2.1):GOTO:Zipcode
+		A: No
+			Q(6.2.2.2):GOTO:HelpNeeded
+
+Q(OneFifty): Based on your income and household size, your family earns 150% or less of the Federal Poverty Guidelines. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(7.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(7.1.1): You can receive up to $852 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(7.1.1.1):GOTO:Zipcode
+		A: No
+			Q(7.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(7.1.2): You can receive up to $658 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(7.1.2.1):GOTO:Zipcode
+		A: No
+			Q(7.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(7.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(7.2.1): You can receive up to $595 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(7.2.1.1):GOTO:Zipcode
+		A: No
+			Q(7.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(7.2.2): You can receive up to $460 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(7.2.2.1):GOTO:Zipcode
+		A: No
+			Q(7.2.2.2):GOTO:HelpNeeded
+
+Q(OneSeventyFive): Based on your income and household size, your family earns 175% or less of the Federal Poverty Guidelines. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(8.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(8.1.1): You can receive up to $750 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(8.1.1.1):GOTO:Zipcode
+		A: No
+			Q(8.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(8.1.2): You can receive up to $579 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(8.1.2.1):GOTO:Zipcode
+		A: No
+			Q(8.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(8.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other)
+		Q(8.2.1): You can receive up to $525 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(8.2.1.1):GOTO:Zipcode
+		A: No
+			Q(8.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(8.2.2): You can receive up to $405 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(8.2.2.1):GOTO:Zipcode
+		A: No
+			Q(8.2.2.2):GOTO:HelpNeeded
+
+Q(TwoHundred): Based on your income and household size, your family earns 200% or less of the Federal Poverty Guidelines. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(9.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(9.1.1): You can receive up to $750 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(9.1.1.1):GOTO:Zipcode
+		A: No
+			Q(9.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(9.1.2): You can receive up to $579 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(9.1.2.1):GOTO:Zipcode
+		A: No
+			Q(9.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(9.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other)
+		Q(9.2.1): You can receive up to $525 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(9.2.1.1):GOTO:Zipcode
+		A: No
+			Q(9.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(9.2.2): You can receive up to $405 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(9.2.2.1):GOTO:Zipcode
+		A: No
+			Q(9.2.2.2):GOTO:HelpNeeded
+
+Q(PossibleSixty): You are not within the federal poverty guidelines for LIHEAP, but you may qualify if your income is 60% or less of the median State Income. 
+A[javascript:if(sixmedinc(getvar('Household'),getvar('Income'))){goto('SixtyPercent')}else{goto('DoesNotQualify')}]: Does my income qualify?
+
+Q(SixtyPercent): Based on your income and household size, your family earns 60% or less of the Estimated State Median Income. You are likely eligible for fuel assistance. Which type of housing do you have?
+A: Homeowner or non-subsidized housing tenant
+	Q(11.1): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other
+		Q(11.1.1): You can receive up to $581 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(11.1.1.1):GOTO:Zipcode
+		A: No
+			Q(11.1.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(11.1.2): You can receive up to $448 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(11.1.2.1):GOTO:Zipcode
+		A: No
+			Q(11.1.2.2):GOTO:HelpNeeded
+A: Subsidized Housing Tenant
+	Q(11.2): What type of heat do you have?
+	A: Deliverable Fuel (Oil, Propane, Kerosene & Other)
+		Q(11.2.1): You can receive up to $405 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(11.2.1.1):GOTO:Zipcode
+		A: No
+			Q(11.2.1.2):GOTO:HelpNeeded
+	A: Utility and Heat Included in the Rent
+		Q(11.2.2): You can receive up to $315 in fuel assistance, possibly more if you qualify for a High Energy Cost Supplement which will be determined by LIHEAP Representatives. Do you wish to continue?
+		A: Yes
+			Q(11.2.2.1):GOTO:Zipcode
+		A: No
+			Q(11.2.2.2):GOTO:HelpNeeded
+
+Q(DoesNotQualify): You do not qualify for Fuel Assistance in Massachusetts because you are over income. What would you like to do next?
+A: I would like additional assistance please.
+	DOC(12.1): 
+Call Good Neighbor Energy Fund: In area codes 617, 508, 781, or 978, call 1-800-334-3047. In area code 413, call 1-800-262-1320. 
+		OR Go to their Website: www.magoodneighbor.org
+	Q(12.1): For additional assistance for limited income households who are over income for fuel assistance, please contact: The Good Neighbor Energy Fund operated by your local Salvation Army. In area codes 617, 508, 781, or 978, call 1-800-334-3047. In area code 413, call 1-800-262-1320. You can also visit this website: <a href="www.magoodneighbor.org">MA Good Neighbor</a>. Would you like to open a draft email with some action items? 
+	A: Yes
+		Q(12.1.1):GOTO:DRAFT
+	A: No
+		Q(12.1.2):GOTO:next
+A: I would like to check my eligibility for other benefits.
+	Q(12.2):GOTO:nextwhichbenefit
+A: I would like links to check my eligibility for other benefits later.
+	Q(12.3):GOTO:BENEFITLINKS
+A: I was originally interacting with the WAP QNA before I was redirected here. I would like to return to the WAP QNA.
+	Q(12.4):GOTO:WAP
+A: I am all set.
+	Q(12.5):GOTO:AllSet
+		
+Q(Zipcode): What is your zipcode?
+X:number
+	DOC(13.1): 
+Zipcode for DHCD Resource Locator Website:<x>Zipcode</x>
+	Q(13.1): Have you ever applied for fuel assistance for a residence or household in the state of Massachusetts?
+	A: Yes
+		DOC(13.1.1): 
+Copy/Paste link and go to website for local phone number: https://hedfuel.azurewebsites.net/
+		Q(13.1.1): Applications are mailed to households after the first year of using Fuel Assistance (LIHEAP). If you have not received another application in order to apply between November 1st and April 30th of the program year, you can find your local agency using this website, <a href="https://hedfuel.azurewebsites.net/" target="_blank">DHCD Resource Locator</a> and selecting your town. Use the drop-down window to find your town and then call your local agency with the number provided. Would you like to open a draft email with some action items?
+		A: Yes
+			Q(13.1.1.1):GOTO:DRAFT
+		A: No
+			Q(13.1.1.2):GOTO:next
+		A: No, I would like to return to the WAP QNA that redirected me here.
+			Q(13.1.1.3):GOTO:WAP
+	A: No
+		DOC(13.1.2): 
+Copy/Paste link and go to website for local phone number: https://hedfuel.azurewebsites.net/
+		Q(13.1.2): First-time applicants must apply in person at the fuel assistance agency in their area. You can find your local agency using this link, <a href="https://hedfuel.azurewebsites.net/" target="_blank">DHCD Resource Locator</a>, selecting your town, and calling that agency's phone number for Fuel Assistance. They will direct you to your next steps on the phone. Would you like to open a draft email with some action items?
+		A: Yes
+			Q(13.1.2.1):GOTO:DRAFT
+		A: No
+			Q(13.1.2.2):GOTO:next
+		A: No, I would like to return to the WAP QNA that redirected me here.
+			Q(13.1.2.3):GOTO:WAP
+
+Q(HelpNeeded): Based on the answers you provided, it seems you may need some further assistance. Would you like to speak with a LIHEAP representative?
+A: Yes
+	DOC(14.1): 
+Copy/Paste link and go to website for local phone number: https://hedfuel.azurewebsites.net/
+	Q(14.1): You can find your local agency using this link, <a href="https://hedfuel.azurewebsites.net/" target="_blank">DHCD Resource Locator</a>. Use the drop-down menu to find your town and then call your local agency with the Fuel Assistance number provided. They will direct you to your next steps on the phone when you give them your information. Would you like to open a draft email with action items?
+	A: Yes
+		Q(14.1.1):GOTO:DRAFT
+	A: No
+		Q(14.1.2):GOTO:AllSet
+A: No
+	Q(14.2):GOTO:AllSet
+A: No, I would like to return to the WAP QNA that redirected me here.
+	Q(14.3):GOTO:WAP
+
+Q(AllSet): Thank you for your participation and have a wonderful day!
+
+Q(DRAFT): Alright, we'll draft an email. Note: This will only work if you have a default email setup on this device. If you're not sure if you do, you can go ahead and try. If it doesn't work, we'll just move on.
+A[javascript:mail2('','Benefits Finder',doc());]: Open Draft Email
+	Q(16.1): Wait a moment to see if a draft email opens. GOTO:next
+
+Q(next): Do you want to check eligibility for other benefits? 
+A: Yes
+	Q(nextwhichbenefit): Which benefit would you like to check next? Click on the benefit below to open the link.
+	A[https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html]: Weatherization Assistance Program
+	A[https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html]: SNAP: Supplemental Nutrition Assistance Program
+A: No
+	Q(17.2): Alright then. Have a nice day. 
+A: Yes, I was redirected here from the WAP QNA and I would like to return there.
+	Q(17.3):GOTO:WAP
+
+Q(BENEFITLINKS): Here are links to check if you are eligible for SNAP or WAP Benefits. <a href="https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html">Weatherization Assistance Program: https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html</a> and <a href="https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html">SNAP: Supplemental Nutrition Assistance Program: https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html</a>. Would you like to open a draft email with some action items? 
+A: Yes
+	DOC(18.1): 
+Copy/Paste these links: 
+SNAP (Supplemental Nutrition Assistance Program): https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html
+Weatherization Assistance Program: https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html
+	Q(18.1):GOTO:DRAFT
+A: No
+	Q(18.2):GOTO:AllSet
+A: No. I was redirected here from the WAP QNA. I would like to return there without an email of action items.
+	Q(18.3):GOTO:WAP
+
+Q(WAP): Now that you have completed the LIHEAP QNA, you can return to the WAP QNA and answer the LIHEAP questions accordingly. Click on the link below to go to the WAP QNA.
+A[https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html]: Weatherization Assistance Program: https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html 

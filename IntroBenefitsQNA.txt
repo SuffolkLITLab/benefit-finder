@@ -1,0 +1,181 @@
+Title: Benefit Finder
+Author: Suffolk Law Clinics
+Description: 
+Before:
+<style>
+body{
+	background:white;
+	background-image: url("https://suffolklitlab.github.io/images/babbage.jpg");
+	background-color: #fff;
+	background-repeat: repeat-x;
+	background-position: center -120px ;
+}
+#conversation {
+	max-width:900px;
+}
+#icon {
+	z-index:2;
+	margin: 40px auto 0px auto;
+	border-radius: 50%;
+	width:100px; 
+	height:100px; 
+	border: 4px solid #fff;
+	background-color: #fff;
+	background-size: 100px;
+	background-position: center;
+ 	background-repeat: no-repeat;
+	background-image: url('http://suffolklitlab.org/images/seal.jpg');
+}
+.title {
+	text-align:center;
+	border-bottom: solid 1px #888;
+	margin-top:10px;
+	padding-bottom:15px;
+}
+</style>
+<div id="icon"></div>
+<h2 class="title">
+	Benefit Finder <sup><font size=-1>Beta</font></sup>
+</h2>
+<p>This is a class project under active development by Suffolk's <a href="http://suffolklitlab.org/" target="_blank">LIT Lab</a>. You should not rely on it as a source of legal information. It is incomplete. It is intended to be used by students of the Suffolk Law Clinical Program. </p>
+<p> Welcome to the Benefits Finder presented by Suffolk University Law School's Clinical Program. Please proceed through the following questions as if you are the individual attempting to apply for SNAP. </p>
+
+
+After: <script src="https://aambrogio.github.io/LIT-QNAs/scripts.js"></script>
+
+DOC(1):Action Items: Benefit Finder
+Link to Benefit Finder: https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html
+
+Q(1): Are you interested in checking your eligibility for Massachusetts Benefits? 
+A: Yes
+	Q(1.1):GOTO:CheckEligibility
+A: No
+	Q(1.2): Do you wish to learn about Massachusetts Benefits?
+	A: Yes
+		Q(1.2.1):GOTO:WhatBenefits 
+	A: No
+		Q(1.2.2):GOTO:AllSet
+A: What are Massachusetts Benefits?
+	Q(WhatBenefits): Massachusetts Benefits are programs in the state that help people with various financial issues meet their needs. Programs are temporary and help individuals remain financially stable or become financially independent. Would you like more information?
+	A: Yes
+		Q(1.3.1): <a href="https://www.benefits.gov/benefits/browse-by-state/state/162">Massachusetts Benefits</a>. Would you like to check your eligibility now?
+		A: Yes
+			Q(1.3.1.1):GOTO:CheckEligibility
+		A: No
+			Q(1.3.1.2):GOTO:AllSet
+	A: No
+		Q(1.3.2):GOTO:LowIncome
+
+Q(LowIncome): Do you (or could you) qualify as low-income?
+A: Yes
+	Q(2.1):GOTO:MABTypes
+A: No
+	Q(2.2):GOTO:Check
+A: I have no idea.
+	Q(2.3):GOTO:Check
+A:I don't think so.
+	Q(2.4):GOTO:Check
+
+Q(MABTypes): Select the statement which best applies to you.
+A: I don't make enough money to pay for food or essentials.
+	Q(3.1):GOTO:SNAPDes
+A: I don't make enough money to pay for heat.
+	Q(3.2):GOTO:LIHEAPDes
+A: My home or apartment is not weather-proof.
+	Q(3.3):GOTO:WAPDes
+A: A combination of these statements applies to me.
+	Q(3.4): You can start this survey over at any time if more than one statement applies to you. We will provide links for you so that you can check your eligibility for different benefits at any time. Choose the statement that is most important to you right now.
+	A:  I do not make enough money to pay for food or essentials.
+		Q(3.4.1):GOTO:SNAPDes
+	A: I do not make enough money to pay for heat.
+		Q(3.4.2):GOTO:LIHEAPDes
+	A: My home or apartment is not weather-proof.
+		Q(3.4.3):GOTO:WAPDes
+
+Q(Check): Would you like to check if you are eligible for MA Benefits?
+A: Yes
+	Q(4.1):GOTO:CheckEligibility
+A: No
+	Q(4.2):GOTO:AllSet
+A: Yes, but first I would like to know more about what MA Benefits are.
+	Q(4.3):GOTO:MABTypes
+
+Q(CheckEligibility): Which of the following programs would you like to check first?
+A: Food Assistance (SNAP)
+	Q(5.1):GOTO:SNAPDes
+A: Fuel Assistance (LIHEAP)
+	Q(5.2):GOTO:LIHEAPDes
+A: The Weatherization Assistance Program (WAP)
+	Q(5.3):GOTO:WAPDes
+A: I want to check a different Benefits program that is not listed.
+	Q(5.4): We are sorry that we do not have more benefits programs for you to check. We are working hard to add more categories. Would you like to check your eligibility for one of the listed programs?
+	A: Yes
+		Q(5.4.1):GOTO:CheckEligibility
+	A: No
+		Q(5.4.2):GOTO:AllSet
+
+Q(SNAPDes): SNAP, the Supplemental Nutritional Assistance Program, is a nutrition program that helps individuals and families stretch their food budget and buy healthy foods. Would you like to determine if you may be eligible for SNAP?
+A: Yes
+	Q(6.1): Click on the link below.
+	A[https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html]: SNAP
+A:No
+	Q(6.2):GOTO:AllSet
+A: Not right now. May I get a link for later?
+	DOC(6.3): 
+SNAP QNA Link for later (copy/paste): https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html
+	Q(6.3): Here is the SNAP QNA Link for later. <a href="https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html">https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html</a>. Would you like to open a draft email with some action items? 
+	A: Yes
+		Q(6.3.1):GOTO:DRAFT
+	A: No
+		Q(6.3.2):GOTO:next
+
+Q(LIHEAPDes): The Low-Income Home Energy Assistance Program (LIHEAP) is a fuel assistance that helps individuals and families with energy costs in their homes. For additional details, <a href="https://www.mass.gov/service-details/learn-about-fuel-assistance">click here</a>. Would you like to determine if you may be eligible for LIHEAP?
+A: Yes
+	Q(7.1): Click on the link below. 
+	A{https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html]: LIHEAP 
+A: No
+	Q(7.2): Would you like to determine if you may be eligible for a different MA Benefit program?
+	A: Yes
+		Q(7.2.1):GOTO:CheckEligibility
+	A: No
+		Q(7.2.2):GOTO:AllSet
+A: No not right now. May I get a link for later?
+	DOC(7.3): 
+LIHEAP QNA Link for later (copy/paste): https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html
+	Q(7.3): Here is the LIHEAP QNA Link for later. <a href="https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html">https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html</a>. Would you like to open a draft email with some action items? 
+	A: Yes
+		Q(7.3.1):GOTO:DRAFT
+	A: No
+		Q(7.3.2):GOTO:next
+
+
+Q(WAPDes): The Massachusetts Weatherization Assistance Program, otherwise know as WAP, provides eligible recipients with funds to "weatherize" their home, such as adding or improving home insulation. For additional details, <a href="https://www.mass.gov/service-details/weatherization-assistance-program-wap">click here</a>. Would you like to determine if you may be eligible for WAP?
+A: Yes
+	Q(8.1): Click on the link.
+	A[https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html]: Weatherization Assistance Program
+A: No
+	Q(8.2): Would you like to determine if you may be eligible for a different MA Benefit program?
+	A: Yes
+		Q(8.2.1):GOTO:CheckEligibility
+	A: No, thank you, I'm all set.
+		Q(8.2.2):GOTO:AllSet
+A: Not right now. May I get a link for later?
+	DOC(8.3): 
+WAP QNA Link for later (copy/paste): https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html
+	Q(8.3): Here is the WAP link for later. <a href="https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html">https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html</a>. Would you like to open a draft email with some action items? 
+	A: Yes
+		Q(8.3.1):GOTO:DRAFT
+	A: No
+		Q(8.3.2):GOTO:next
+
+Q(DRAFT): Alright, we'll draft an email. Note: This will only work if you have a default email setup on this device. If you're not sure if you do, you can go ahead and try. If it does not work, your answers and information you require will still be available in the interactive QNA.
+A[javascript:mail2('','Benefits Finder',doc());]: Open Draft Email
+	Q(9.1): Wait a moment to see if a draft email opens. GOTO:next
+
+Q(next): Would you like to check your eligibility for any other MA Benefit Programs?
+A: Sure.
+	Q(10.1):GOTO:CheckEligibility
+A: No thank you, I'm all set.
+	Q(10.2):GOTO:AllSet
+
+Q(AllSet): Have a nice day!
