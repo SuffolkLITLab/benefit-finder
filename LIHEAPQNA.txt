@@ -41,7 +41,7 @@ body{
 <p> This QNA is meant to determine if you or your client may qualify for LIHEAP (Massachusett's Fuel Assistance Program). Please proceed through the following questions as if you are the individual attempting to apply for LIHEAP. </p>
 
 
-After: <script src="https://aambrogio.github.io/LIT-QNAs/scripts.js"></script>
+After: <script src="https://github.com/SuffolkLITLab/benefit-finder/scripts.js"></script>
 
 DOC(1):Action Items: LIHEAP
 Link to Benefit Finder: https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html

@@ -40,7 +40,7 @@ body{
 <p>This is a class project under active development by Suffolk's <a href="http://suffolklitlab.org/" target="_blank">LIT Lab</a>. You should not rely on it as a source of legal information. It is incomplete. It is intended to be used by students of the Suffolk Law Clinical Program. </p>
 <p>This QNA is meant to determine if you or your client may qualify for SNAP (Supplemental Nutritional Assistance Program). Please proceed through the following questions as if you are the individual attempting to apply for SNAP. </p>
 
-After: <script src="https://aambrogio.github.io/LIT-QNAs/scripts.js"></script>
+After: <script src="https://github.com/SuffolkLITLab/benefit-finder/scripts.js"></script>
 
 DOC(1):Action Items: SNAP
 Link to Benefit Finder: https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html
