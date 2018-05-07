@@ -1,0 +1,100 @@
+Title: 
+Author:
+Description:
+
+Q: Do you need help paying for food?
+A: Yes
+	Q:GOTO:
+A: No
+	Q:GOTO:
+Q: Are you a resident of Massachusetts?
+A: Yes
+	Q:GOTO:
+A: No
+	Q:GOTO:
+Q: Are you a citizen of the United States?
+A: Yes
+	Q:GOTO:
+A: No
+	Q:GOTO:
+Q: Are you a member of one of the following groups?
+A: Lawful Permanent Resident
+	Q:GOTO:
+A: Lawfully Admitted Asylee
+	Q:GOTO:
+A: Deportation Withhold Status
+	Q:GOTO:
+A: Cuban or Haitian Entrants
+	Q:GOTO:
+A: Victim of Abuse or Trafficking
+	Q:GOTO:
+A: Lawfully Admitted Refugee
+	Q:GOTO:
+A: Iraqi or Afghan Special Immigrant
+	Q:GOTO:
+A: Hmong or Highland Laotian Tribal Members
+	Q:GOTO:
+A: American Indian Born Abroad
+	Q:GOTO:
+A: Receive U.S. Disability or Blindness Benefits
+	Q:GOTO:
+A: Born before 8/22/1931 and a Lawful Resident of U.S. since 8/22/1996
+	Q:GOTO:
+A: Under the age of 18
+	Q:GOTO:
+A: If none of these describe your status, click here.
+	Q:GOTO:
+Q: How much money in household assets/resources does your family have?
+A: $0.00 to $2,250.00
+	Q:GOTO:
+A: $2,250.00 to $3,500.00
+	Q:GOTO:
+A: More than $3,500.00
+	Q:GOTO:
+Q: Is anyone in your household above the age of 60?
+A: Yes
+	Q:GOTO:
+A: No
+	Q:GOTO:
+Q: How many people live in your household?
+A: 1
+A: 2
+A: 3
+A: 4
+A: 5
+A: 6
+A: 7
+A: 8
+	Q: What is your total monthly household income?
+	X:
+		Q:GOTO:
+Q: What is your employment status?
+A: Employed
+	Q:GOTO:
+A: Unemployed
+	Q:GOTO:
+Q: Are you looking for a job?
+A: Yes
+	Q:GOTO:
+A: No
+	Q:GOTO:
+Q: Are you any of the following?
+A: Elderly
+	Q:GOTO:
+A: Disabled
+	Q:GOTO:
+A: Pregnant
+	Q:GOTO:
+A: Under the age of 18
+	Q:GOTO:
+A: If none of these describe you, click here.
+	Q:GOTO:
+Q: You may qualify for SNAP Benefits. Click "Download" below for some additional information regarding applying for SNAP Benefits.
+A: Download
+Q: It is unlikely you qualify for SNAP Benefits based upon your answers to these questions. If you think this is an error, please contact an attorney.
+A: 
+
+
+
+
+

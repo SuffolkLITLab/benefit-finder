@@ -1,0 +1,46 @@
+Q(BeginWAP): This questionnaire is intended to determine whether or not you or your client might qualify for the Massachusetts Weatherization Assistance Program, otherwise know as WAP. WAP provides eligible recipients with funds to "weatherize" their home, such as adding or improving home insulation. For additional details, <a href="https://www.mass.gov/service-details/weatherization-assistance-program-wap">click here</a>. Please answer the following questions as accurate as possible and answer as if you are the person applying for the program. Are you ready to begin?
+A: Yes
+	Q(1.1):GOTO:Residency
+A: No
+	Q(1.2): If you wish to start over, click "Start Over" below. If you wish to answer a different questionnaire, reload the page.  
+Q(Residency): Are you a resident of Massachusetts?
+A: Yes
+	Q(2.1):GOTO:LIHEAP
+A: No
+	Q(2.2):GOTO:WAPNo
+Q(LIHEAP): In Massachusetts, in order to qualify for WAP, you must first qualify for LIHEAP. For more information on LIHEAP, <a href="https://www.mass.gov/service-details/low-income-home-energy-assistance-program-liheap">click here</a>. Do you receive benefits from the Low Income Home Energy Assistance Program, commonly known as LIHEAP? 
+A: Yes
+	Q(3.1):GOTO:Qualify
+A: No
+	Q(3.2):GOTO:Apply
+A: I do not know.
+	Q(3.3): In order to be eligible for WAP, you must first qualify for LIHEAP. There is a separate questionnaire to determine whether or not you might qualify for LIHEAP. Do you want to answer the LIHEAP questionnaire?
+	A: Yes
+	A: No
+		Q(3.3.2):GOTO:SSI
+Q(Apply): Have you ever applied for LIHEAP?
+A: Yes
+	Q(4.1):GOTO:Denied
+A: No
+Q(Denied): Were you denied LIHEAP benefits?
+A: Yes
+	Q(5.1):GOTO:WAPNo
+A: No
+	Q(5.2):GOTO:SSI
+Q(SSI): You may qualify for WAP, especially if you or someone in your household has Supplemental Security Income, commonly referred to as SSI benefits. SSI is a federally funded program administered by the U.S. Social Security Administration (SSA). SSI provides financial help to disabled adults and children who have limited income and assets. For additional details, <a href="https://www.benefits.gov/benefits/benefit-details/4412">click here<a/>. Do you or does someone in your household receive SSI?
+A: Yes
+	Q(6.1):GOTO:WAPYes
+A: No
+	Q(6.2):GOTO:TAFDC
+A: I do not know.
+	Q(6.3):GOTO:TAFDC
+Q(TAFDC): You may still qualify for WAP, even though your household is not subject currently to SSI benefits, if you receive TAFDC benefits, defined as Transitional Aid to Families with Dependent Children. For additional details, <a href="https://www.mass.gov/service-details/check-tafdc-eligibility-and-how-to-apply">click here</a>. Do you or does someone in your household receive TAFDC benefits?
+A: Yes
+	Q(7.1):GOTO:WAPYes
+A: No
+	Q(7.2):GOTO:WAPNo
+A: I do not know.
+	Q(7.3):GOTO:Consult
+Q(WAPYes): Based upon your answers to the questions above, it is likely you do qualify for WAP. To fill out an application, call a WAP Representative at (617) 573-1100 or (617) 573-1140 if you have hearing issues.
+Q(Consult): Without more information, it is difficult to determine whether or not you might qualify for WAP. It is recommended you consult an attorney who specializes in Massachusetts benefits or a representative at the Department of Housing and Community Development (DHCD). Here is the phone number for DHCD: (617) 573-1100.
+Q(WAPNo): It is unlikely you qualify for WAP. If you this was an error, please consult an attorney who specializes in Massachusetts benefits or you can start this questionnaire over. 

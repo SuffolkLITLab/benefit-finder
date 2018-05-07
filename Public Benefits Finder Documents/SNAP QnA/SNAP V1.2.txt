@@ -1,0 +1,109 @@
+Title: SNAP
+Author: Michael DiFilippo
+Description: LIT Project
+
+Q(Food): Do you need help paying for food?
+A: Yes
+	Q(1.1):GOTO:Resident
+A: No
+	Q(1.2):GOTO:Unqualified
+Q(Resident): Are you a resident of Massachusetts?
+A: Yes
+	Q(2.1):GOTO:Citizen
+A: No
+	Q(2.2):GOTO:Unqualified
+Q(Citizen): Are you a citizen of the United States?
+A: Yes
+	Q(3.1):GOTO:Assets
+A: No
+	Q(3.2):GOTO:NonCitizen
+Q(NonCitizen): Are you a member of one of the following groups?
+A: Lawful Permanent Resident
+	Q(4.1):GOTO:Assets
+A: Lawfully Admitted Asylee
+	Q(4.2):GOTO:Assets
+A: Deportation Withhold Status
+	Q(4.3):GOTO:Assets
+A: Cuban or Haitian Entrants
+	Q(4.4):GOTO:Assets
+A: Victim of Abuse or Trafficking
+	Q(4.5):GOTO:Assets
+A: Lawfully Admitted Refugee
+	Q(4.6):GOTO:Assets
+A: Iraqi or Afghan Special Immigrant
+	Q(4.7):GOTO:Assets
+A: Hmong or Highland Laotian Tribal Members
+	Q(3.10):GOTO:Assets
+A: American Indian Born Abroad
+	Q(3.11):GOTO:Assets
+A: Receive U.S. Disability or Blindness Benefits
+	Q(3.12):GOTO:Assets
+A: Born before 8/22/1931 and a Lawful Resident of U.S. since 8/22/1996
+	Q(3.13):GOTO:Assets
+A: Under the age of 18
+	Q(3.14):GOTO:Assets
+A: If none of these describe your status, click here.
+	Q(3.15):GOTO:Unqualified
+Q(Assets): How much money in household assets/resources does your family have?
+A: $0.00 to $2,250.00
+	Q(5.1):GOTO:Household
+A: $2,250.00 to $3,500.00
+	Q(5.2):GOTO:Elderly
+A: More than $3,500.00
+	Q(5.3):GOTO:Unqualified
+Q(Elderly): Is anyone in your household above the age of 60?
+A: Yes
+	Q(6.1):GOTO:Household
+A: No
+	Q(6.2):GOTO:Unqualified
+Q(Household): How many people live in your household?
+A: 1
+	Q(7.1):GOTO:HouseholdIncome
+A: 2
+	Q(7.2):GOTO:HouseholdIncome
+A: 3
+	Q(7.3):GOTO:HouseholdIncome
+A: 4
+	Q(7.4):GOTO:HouseholdIncome
+A: 5
+	Q(7.5):GOTO:HouseholdIncome
+A: 6
+	Q(7.6):GOTO:HouseholdIncome
+A: 7
+	Q(7.7):GOTO:HouseholdIncome
+A: 8
+	Q(7.8):GOTO:HouseholdIncome
+Q(HouseholdIncome): What is your total monthly household income?
+X:
+	Q(8.1):GOTO:Employment
+Q(Employment): What is your employment status?
+A: Employed
+	Q(9.1):GOTO:Qualified
+A: Unemployed
+	Q(9.2):GOTO:JobSearch
+Q(JobSearch): Are you looking for a job?
+A: Yes
+	Q(10.1):GOTO:Qualified
+A: No
+	Q(10.2):GOTO:Exceptions
+Q(Exceptions): Are you any of the following?
+A: Elderly
+	Q(11.1):GOTO:Qualified
+A: Disabled
+	Q(11.2):GOTO:Qualified
+A: Pregnant
+	Q(11.3):GOTO:Qualified
+A: Under the age of 18
+	Q(11.4):GOTO:Qualified
+A: If none of these describe you, click here.
+	Q(11.5):GOTO:Unqualified
+Q(Qualified): You may qualify for SNAP Benefits. Click "Download" below for some additional information regarding applying for SNAP Benefits.
+A: Download
+Q(Unqualified): It is unlikely you qualify for SNAP Benefits based upon your answers to these questions. If you think this is an error, please contact an attorney.
+A: Click here if you would like to start over.
+	Q(13.1):GOTO:Food
+
+
+
+
+

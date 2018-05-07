@@ -1,0 +1,29 @@
+Q(BeginWAP): This questionnaire is intended to determine whether or not you or your client might qualify for the Massachusetts Weatherization Assistance Program, otherwise know as WAP. WAP provides eligible recipients with funds to "weatherize" their home, such as adding or improving home insulation. For additional details, please click here. Please answer the following questions as accurate as possible and answer as if you are the person applying for the program. Are you ready to begin?
+A: Yes
+	Q(1.1):GOTO:Residency
+A: No
+	Q(1.2): If you wish to start over, click "Start Over" below. If you wish to answer a different questionnaire, reload the page.  
+Q(Residency): Are you a resident of Massachusetts?
+A: Yes
+	Q(2.1):GOTO:LIHEAP
+A: No
+	Q(2.2):GOTO:WAPNo
+Q(LIHEAP): Do you receive benefits from the Low Income Home Energy Assistance Program, commonly known as LIHEAP? In Massachusetts, in order to qualify for WAP, you must first qualify for LIHEAP.
+A: Yes
+	Q(3.1):GOTO:Qualify
+A: No
+	Q(3.2):GOTO:Apply
+A: I do not know.
+	Q(3.3): In order to be eligible for WAP, you must first qualify for LIHEAP. There is a separate questionnaire to determine whether or not you might qualify for LIHEAP. Do you want to answer the LIHEAP questionnaire?
+	A: Yes
+	A: No
+		Q(3.3.2): If you would like to apply for LIHEAP, please click here.
+Q(Apply): Have you ever applied for LIHEAP?
+A: Yes
+	Q(4.1):GOTO:Denied
+A: No
+Q(Denied): Were you denied LIHEAP benefits?
+A: Yes
+	Q(5.1):GOTO:WAPNo
+A: No
+Q(WAPNo): It is unlikely you qualify for WAP. If you this was an error, please consult an attorney or you can start over. 
