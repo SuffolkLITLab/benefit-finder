@@ -347,6 +347,7 @@ A: Yes
 	Q(nextwhichbenefit): Which benefit would you like to check next? Click on the benefit below to open the link.
 	A[https://suffolklitlab.github.io/benefit-finder/WAPQNA.html]: Weatherization Assistance Program
 	A[https://suffolklitlab.github.io/benefit-finder/SNAPQNA.html]: SNAP: Supplemental Nutrition Assistance Program
+	A[https://suffolklitlab.github.io/benefit-finder/MassHealthStandardQNA.html]: MassHealth Standard
 A: No
 	Q(17.2): Alright then. Have a nice day. 
 A: Yes, I was redirected here from the WAP QNA and I would like to return there.
