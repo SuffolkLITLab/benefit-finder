@@ -1,4 +1,50 @@
-After: <script src="http://www.codingthelaw.org/Fall_2017/work/aambrogio/p4/js_bin/scripts.js"></script>
+Title: Benefit Finder: MassHealth Standard
+Author: Suffolk Law Clinics
+Description: 
+Before:
+<style>
+body{
+	background:white;
+	background-image: url("https://suffolklitlab.github.io/images/babbage.jpg");
+	background-color: #fff;
+	background-repeat: repeat-x;
+	background-position: center -120px ;
+}
+#conversation {
+	max-width:900px;
+}
+#icon {
+	z-index:2;
+	margin: 40px auto 0px auto;
+	border-radius: 50%;
+	width:100px; 
+	height:100px; 
+	border: 4px solid #fff;
+	background-color: #fff;
+	background-size: 100px;
+	background-position: center;
+ 	background-repeat: no-repeat;
+	background-image: url('http://suffolklitlab.org/images/seal.jpg');
+}
+.title {
+	text-align:center;
+	border-bottom: solid 1px #888;
+	margin-top:10px;
+	padding-bottom:15px;
+}
+</style>
+<div id="icon"></div>
+<h2 class="title">
+	Benefit Finder <sup><font size=-1>Beta</font></sup>
+</h2>
+<p>This is a class project under active development by Suffolk's <a href="http://suffolklitlab.org/" target="_blank">LIT Lab</a>. You should not rely on it as a source of legal information. It is incomplete. It is intended to be used by students of the Suffolk Law Clinical Program. </p>
+<p> This QNA is meant to determine if you or your client may qualify for MassHealth, Standard Coverage. Please proceed through the following questions as if you are the individual attempting to apply for MassHealth Standard.  </p>
+
+
+After: <script src="https://suffolklitlab.github.io/benefit-finder/scripts.js"></script>
+
+DOC(1):Action Items: MassHealth Standard
+Link to Benefit Finder: https://suffolklitlab.github.io/benefit-finder/IntroBenefitsQNA.html
 
 
 Q(Begin): This QNA is meant to determine if you or your client may qualify for MassHealth (Standard). Please proceed through the following questions as if you are the individual attempting to apply for MassHealth.  Are you ready to proceed?
@@ -7,7 +53,7 @@ A: Yes
 	A: Yes
 		Q(1.1.1): If you find you are missing information or need any help as we proceed through residency, income, and household questions, here is a phone number for you to call in order to reach a MassHealth Representative who can assist you: 1-800-497-4648. When you are ready to proceed, just click Residency.
 		A: Residency
-			Q:GOTO:Residency
+			Q(1.1.1.1):GOTO:Residency
 	A: No
 		Q(1.1.2):GOTO:Residency
 A: No
@@ -27,19 +73,19 @@ A: Yes
 		A: No
 			Q(2.1.2.2):GOTO:Visiting
 	A: I do not know.	
-		Q: Do you think you are staying in Massachusetts?
+		Q(2.1.3): Do you think you are staying in Massachusetts?
 		A: Yes	
-			Q:GOTO:MAGI
+			Q(2.1.3.1):GOTO:MAGI
 		A: No
-			Q:GOTO:Job
+			Q(2.1.3.2):GOTO:Job
 		A: I don't know.
-			Q: If things go the way you plan them to, are you staying in Massachusetts?	
+			Q(2.1.3.3): If things go the way you plan them to, are you staying in Massachusetts?	
 			A: Yes
-				Q:GOTO:MAGI
+				Q(2.1.3.3.1):GOTO:MAGI
 			A: No
-				Q:GOTO:Job
+				Q(2.1.3.3.2):GOTO:Job
 			A: I don't know.
-				Q:GOTO:Job		
+				Q(2.1.3.3.3):GOTO:Job		
 A: No
 	Q(Visiting): Are you visiting Massachusetts for personal pleasure, such as a vacation?
 	A: Yes
@@ -51,7 +97,7 @@ A: No
 		A: No
 			Q(2.2.2.2):GOTO:MassHealthResidencyPossiblyEligible
 A: I don't know. What does that mean?
-	Q:GOTO:ResidencyRequirements
+	Q(2.3):GOTO:ResidencyRequirements
 
 Q(MassHealthResidencyNotEligible): You do not meet residency requirements for MassHealth. In order to meet residency requirements, you must (1) "live in Massachusetts and (2) either intent to reside in Massachusetts, with or without a fixed address, or have entered Massachusetts with a job commitment or seeking employment." <a href="https://www.mass.gov/service-details/eligibility-for-health-care-benefits-for-masshealth-the-health-safety-net-and">MassHealth</a>.
 
@@ -59,17 +105,17 @@ Q(MassHealthResidencyPossiblyEligible): Based on the information you have provid
 A: Yes, I would like a description of the residency requirement. 
 	Q(ResidencyRequirements):  In order to meet residency requirements, you must (1) "live in Massachusetts and (2) either intent to reside in Massachusetts, with or without a fixed address, or have entered Massachusetts with a job commitment or seeking employment." "You do not meet residency requirements for MassHealth if you are visiting Massachusetts (1) for personal pleasure, such as for a vacation, or (2) to receive medical care in a setting other than a nursing facility. What do you wish to do next?
 	A: I would like to re-answer the Residency question.
-		Q:GOTO:Residency
+		Q(4.1.1):GOTO:Residency
 	A: I would like a phone number to call.
-		Q(4.1.1):GOTO:MassHealthPhone
+		Q(4.1.2):GOTO:MassHealthPhone
 	A: I would like to look at a website.
-		Q(4.1.2):GOTO:MassHealthEnrollWeb
+		Q(4.1.3):GOTO:MassHealthEnrollWeb
 	A: I would like to look at a website and receive a phone number.
-		Q(4.1.3):GOTO:MassHealthWebAndPhone
+		Q(4.1.4):GOTO:MassHealthWebAndPhone
 	A: I am all set, thank you.
-		Q(4.1.4):GOTO:AllSet
+		Q(4.1.5):GOTO:AllSet
 	A: I would like to see if I meet income and household requirements, even if I may not meet residency requirements.
-		Q(4.1.5):GOTO:MAGI
+		Q(4.1.6):GOTO:MAGI
 A: Yes, I would like a phone number to call.
 	Q(MassHealthPhone): Call the MassHealth Member Customer Service Center. They can help! Toll-free number: 1-800-841-2900. You can also call 1-877-MA Enroll (1-877-623-6765). TTY: 1-800-497-4648. Hours of operation: Monday – Friday, 8:00 a.m. – 5:00 p.m. We can speak with you in other languages. العربية | ខ្មែរ | 繁體中文 | Français | Kreyòl Ayisyen | λληνικά | ગુજરાતી | हिंदी | Italiano | 한국어 | Polski | Português | Русский | Español | Tiếng Việt. How would you like to proceed?
 	A: I would like to start from the beginning.
@@ -144,9 +190,9 @@ A: Non U.S. Citizen
 		A: I am a Native American with at least 50 percent American Indian blood who was born in Canada pursuant to section 289 of the INA or other tribal members born in territories outside of the United States pursuant to 25 U.S.C. 450b(e).
 			Q(6.2.1.6):GOTO:QualifiedNonCitizenEligible
 		A: I am a different Qualified Non Citizen.
-			Q:GOTO:QualNonCitTwo
+			Q(6.2.1.7):GOTO:QualNonCitTwo
 	A: I am not sure.
-		Q:GOTO:HelpNeeded
+		Q(6.2.2):GOTO:HelpNeeded
 A: Nonqualified Individaul who is Lawfully Present
 	Q(6.3):
 	A: I am a person in a valid nonimmigrant status as otherwise defined in 8 U.S.C. 1101(a)(15) or otherwise defined under immigration laws as defined in 8 U.S.C. 1101(a)(17).
@@ -182,21 +228,21 @@ A: Nonqualified Individaul who is Lawfully Present
 A: None of the above.
 	Q(6.4):GOTO:HelpNeeded
 A: I am not sure. I might be a U.S. Citizen or U.S. National.
-	Q: A citizen of the United States is any of the following: (1) "an individual who was born in the United States or its territories, including Puerto Rico, the Virigin Islands, Guam, and the Northern Mariana Islands, except if born to a foreign diplomat and who otherwise qualifies for U.S. citizenship under Section 301 et. seq. of the Immigration and Nationality Act (INA)"; (2) "an individual born of a parent who is a U.S. citizen or who otherwise qualifies for U.S. citizenship under Section 301 et seq. of the INA"; (3) "a naturalized citizen"; or (4) "a national (both citizen and noncitizen national)." A Citizen National is "an individual who otherwise qualifies as a U.S. Citizen under Section 301 et seq. of the INA." A Noncitizen National is "an individual who was born in one of the outlying possessions of the United States, including American Samoa and Swain's Island, to a parent who is a Noncitizen National." Based on these definitions, are you a U.S. Citizen or U.S. National?
+	Q(6.5): A citizen of the United States is any of the following: (1) "an individual who was born in the United States or its territories, including Puerto Rico, the Virigin Islands, Guam, and the Northern Mariana Islands, except if born to a foreign diplomat and who otherwise qualifies for U.S. citizenship under Section 301 et. seq. of the Immigration and Nationality Act (INA)"; (2) "an individual born of a parent who is a U.S. citizen or who otherwise qualifies for U.S. citizenship under Section 301 et seq. of the INA"; (3) "a naturalized citizen"; or (4) "a national (both citizen and noncitizen national)." A Citizen National is "an individual who otherwise qualifies as a U.S. Citizen under Section 301 et seq. of the INA." A Noncitizen National is "an individual who was born in one of the outlying possessions of the United States, including American Samoa and Swain's Island, to a parent who is a Noncitizen National." Based on these definitions, are you a U.S. Citizen or U.S. National?
 	A: Yes.
-		Q:GOTO:QualifyingPerson
+		Q(6.5.1):GOTO:QualifyingPerson
 	A: No 
-		Q:GOTO:Citizenship
+		Q(6.5.2):GOTO:Citizenship
 A: I do not know and need help to figure out the answer.
-	Q:GOTO:HelpNeeded
+	Q(6.6):GOTO:HelpNeeded
 		
 Q(QualNonCitTwo): Since you did not fall into a different Qualified NonCitizen Category, choose one of the following:
 A: I am Amerasian as described in section 402(a)(2)(A)(i)(V) of the Personal Responsibility and Work Opportunity Reconciliation Act (PRWORA) of 1996.
-	Q(6.2.1.7):GOTO:QualifiedNonCitizenEligible
+	Q(7.1):GOTO:QualifiedNonCitizenEligible
 A: I am the victim of a severe form of trafficking, and/or I am the spouse, child, sibling, or parent of a victim in accordance with the Victims of Trafficking and Violence Protection Act of 2000 (Public Law 106-386) as amended.
-	Q(6.2.1.8):GOTO:QualifiedNonCitizenEligible
+	Q(7.2):GOTO:QualifiedNonCitizenEligible
 A: I am an Iraqi Special Immigrant granted special immigrant status under Section 101(a)(27) of the INA, pursuant to section 1244 of Public Law 110-181 or section 525 of Public Law 110-161.
-	Q(6.2.1.9):GOTO:QualifiedNonCitizenEligible
+	Q(7.3):GOTO:QualifiedNonCitizenEligible
 A: I am an Afghan Special Immigrant granted special immigrant status under Section 101(a)(27) of the INA, pursuant to section 525 of Public Law 110-161.
 	Q(6.2.1.10):GOTO:QualifiedNonCitizenEligible
 A: I am a veteran of the United States Armed Forces, the spouse of a veteran of the United States Armed Forces, or the child of a veteran of the United States Armed Forces
@@ -249,43 +295,43 @@ A: I am a Qualified Non Citizen but I do not fall under any of these categories
 
 Q(SecondSectionNonCitizenB): Non Citizen Section 2 Conditions: You indicated that you qualify as a Non Citizen under the selected category. In conjunction with that category, you must satisfy at least one of the following three conditions. Select one of the conditions that applies.
 A: I have had status listed previously for five or more years.
-	Q(7.1):GOTO:QualifiedNonCitizenEligible
+	Q(8.1):GOTO:QualifiedNonCitizenEligible
 A: I entered the U.S. before August 22, 1996, regardless of status at the time of entry, and I have been continuously present in the U.S. until attaining a status which I selected above. (An individual is deemed continuously present who has been absent from the U.S. for no more than 30 consecutive days or 90 nonconsecutive days before attaining the above selected status).
-	Q(7.2):GOTO:QualifiedNonCitizenEligible
+	Q(8.2):GOTO:QualifiedNonCitizenEligible
 A: I also had a status listed in Non Citizen Section 1.
-	Q(7.3):GOTO:QualifiedNonCitizenEligible
+	Q(8.3):GOTO:QualifiedNonCitizenEligible
 A: I have not satisfied one of the following conditions.
-	Q(7.4): You may not qualify as a Non Citizen for MassHealth Standard. We recommend you speak with a MassHealth Representative to determine you eligibility for MassHealth (Standard).
+	Q(8.4): You may not qualify as a Non Citizen for MassHealth Standard. We recommend you speak with a MassHealth Representative to determine you eligibility for MassHealth (Standard).
 	A: I would like to speak with a MassHealth Representative.
-		Q(7.4.1):GOTO:MassHealthPhone
+		Q(8.4.1):GOTO:MassHealthPhone
 	A: I am all set, thank you.
-		Q(7.4.2):GOTO:AllSet
+		Q(8.4.2):GOTO:AllSet
 
 	
 
 Q(QualifyingPerson): In order to continue to meet eligibility requirements for MassHealth, you must qualify. Please select the option that applies.
 A: Pregnant
-	Q(8.1):GOTO:NextPregnant
+	Q(9.1):GOTO:NextPregnant
 A: Younger than 19 years of age
-	Q(8.2):GOTO:NextNineteenYoung
+	Q(9.2):GOTO:NextNineteenYoung
 A: A young adult 19-20 years of age
-	Q(8.3):GOTO:NextNineteenTwenty
+	Q(9.3):GOTO:NextNineteenTwenty
 A: A parent living with your children younger than 19 years of age
-	Q(8.4):GOTO:NextParentNineteenYoung
+	Q(9.4):GOTO:NextParentNineteenYoung
 A: An adult caretaker relative living with children younger than 19 years of age to whom you are related and for whom you are the primary caretaker when neither parent is living in the home
-	Q(8.5):GOTO:NextAdultRelative
+	Q(9.5):GOTO:NextAdultRelative
 A:Younger than 65 years of age with breast or cervical cancer
-	Q(8.6):GOTO:NextBCCancer
+	Q(9.6):GOTO:NextBCCancer
 A: None of the above.
-	Q:GOTO:OtherQualifyingPerson
+	Q(9.7):GOTO:OtherQualifyingPerson
 	
 Q(OtherQualifyingPerson): In order to continue to meet eligibility requirements for MassHealth, you must qualify. One of the other options did not apply to you, so here are a few more. Please select the option that applies.
 A: Younger than 65 years of age and are HIV positive
-	Q(8.7):GOTO:NextHIV
+	Q(10.1):GOTO:NextHIV
 A: Disabled according to the standards set by federal and state law (This means you have a mental or physical condition that limits or keeps you from working for at least 12 months)
-	Q(8.8):GOTO:NextDisabled
+	Q(10.2):GOTO:NextDisabled
 A: Eligible based on special rules (If you do not know what this means, this likely does not apply to you).*
-	Q(8.9):GOTO:NextSpecialHealth
+	Q(10.3):GOTO:NextSpecialHealth
 A: A certain individual up to 26 years of age who was formerly in foster care (which persons have no income limit)
 	Q(6.10):GOTO:NextFoster
 A: A certain individual who is otherwise eligible for MassHealth CarePlus, has been determined to have special health care needs, and has chosen to be enrolled in MassHealth Standard
@@ -329,91 +375,78 @@ A[javascript:if(fedpov(getvar('Household'),getvar('MAGI'),133)){goto('Eligible')
 
 Q(Eligible): Based on the information you have provided, it seems more likely than not that you are eligible for MassHealth (Standard). MassHealth Representatives ultimately determine whether you are eligible after you apply. How would you like to apply?
 A: Online
-	Q(19.1): In order to apply online, you must set up and/or sign in to your account at <a href="MAhealthconnector.org"> this Mass Health website</a>. Do you need any further assistance?
+	Q(21.1): In order to apply online, you must set up and/or sign in to your account at <a href="MAhealthconnector.org"> this Mass Health website</a>. Do you need any further assistance?
 	A: Yes
-		Q(19.1.1):GOTO:MassHealthPhone
+		Q(21.1.1):GOTO:MassHealthPhone
 	A: No
-		Q(19.1.2):GOTO:AllSet
+		Q(21.1.2):GOTO:AllSet
 A: By Mail
-	Q(19.2): Fill out the MassHealth <a href="https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf"> Health Plan Enrollment or Change Form</a>, then send this form to the following address: Health Insurance Processing Center, P.O. Box 4405, Taunton, MA 02780. Do you need any further assistance?
+	Q(21.2): Fill out the MassHealth <a href="https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf"> Health Plan Enrollment or Change Form</a>, then send this form to the following address: Health Insurance Processing Center, P.O. Box 4405, Taunton, MA 02780. Do you need any further assistance?
 	A: Yes
-		Q(19.2.1):GOTO:MassHealthPhone
+		Q(21.2.1):GOTO:MassHealthPhone
 	A: No
-		Q(19.2.2):GOTO:AllSet
+		Q(21.2.2):GOTO:AllSet
 A: By Fax
-	Q(19.3): Fill out the MassHealth <a href="https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf"> Health Plan Enrollment or Change Form</a>, then fax the completed form to 1-857-323-8300. Do you need any further assistance?
+	Q(21.3): Fill out the MassHealth <a href="https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf"> Health Plan Enrollment or Change Form</a>, then fax the completed form to 1-857-323-8300. Do you need any further assistance?
 	A: Yes
-		Q(19.3.1):GOTO:MassHealthPhone
+		Q(21.3.1):GOTO:MassHealthPhone
 	A: No
-		Q(19.3.2):GOTO:AllSet
+		Q(21.3.2):GOTO:AllSet
 A: By Phone
-	Q(19.4): Are you deaf, hard of hearing, or speech disabled? Do you need any further assistance?
+	Q(21.4): Are you deaf, hard of hearing, or speech disabled? Do you need any further assistance?
 	A: Yes
-		Q(19.4.1): Call 1-800-497-4648. A MassHealth Representative will assist you. Do you need any further assistance?
+		Q(21.4.1): Call 1-800-497-4648. A MassHealth Representative will assist you. Do you need any further assistance?
 		A: Yes
-			Q(19.4.1.1):GOTO:MassHealthPhone
+			Q(21.4.1.1):GOTO:MassHealthPhone
 		A: No
-			Q(19.4.1.2):GOTO:AllSet
+			Q(21.4.1.2):GOTO:AllSet
 	A: No
-		Q(19.4.2): Call 1-800-841-2900 or 1-877-MA ENROLL (1-877-623-6765). A MassHealth Representative will assist you. Do you need any further assistance?
+		Q(21.4.2): Call 1-800-841-2900 or 1-877-MA ENROLL (1-877-623-6765). A MassHealth Representative will assist you. Do you need any further assistance?
 		A: Yes
-			Q(19.4.2.1):GOTO:MassHealthPhone
+			Q(21.4.2.1):GOTO:MassHealthPhone
 		A: No
-			Q(19.4.2.2):GOTO:AllSet
+			Q(21.4.2.2):GOTO:AllSet
 A: In Person
-	Q(19.5): To enroll in person, visit a MassHealth Enrollment Center. Enrollment Centers are located at the following addresses: (1) 45 Spruce St, Chelsea, MA 02150; (2) 88 Industry Avenue, Suite D, Springfield, MA 01104; (3) 21 Spring Street, Suite 4, Taunton, MA 02780; and (4) 367 East Street, Tewksbury, MA 01876. Please do not send an application to any of these enrollment centers as the application cannot be processed that way. Do you need any further assistance?
+	Q(21.5): To enroll in person, visit a MassHealth Enrollment Center. Enrollment Centers are located at the following addresses: (1) 45 Spruce St, Chelsea, MA 02150; (2) 88 Industry Avenue, Suite D, Springfield, MA 01104; (3) 21 Spring Street, Suite 4, Taunton, MA 02780; and (4) 367 East Street, Tewksbury, MA 01876. Please do not send an application to any of these enrollment centers as the application cannot be processed that way. Do you need any further assistance?
 	A: Yes
-		Q(19.5.1):GOTO:MassHealthPhone
+		Q(21.5.1):GOTO:MassHealthPhone
 	A: No
-		Q(19.5.2):GOTO:AllSet
+		Q(21.5.2):GOTO:AllSet
 
 Q(PossiblyEligible): Based on the information you have provided, we cannot determine if you are eligible for MassHealth (Standard) at this time. It is likely that you qualify for a different type of coverage under MassHealth.  How would you like to proceed?
 A: I would like a phone number to call.
-	Q(20.1):GOTO:MassHealthPhone
+	Q(22.1):GOTO:MassHealthPhone
 A: I would like to look at a website.
-	Q(20.2):GOTO:MassHealthEnrollWeb
+	Q(22.2):GOTO:MassHealthEnrollWeb
 A: I would like to look at a website and receive a phone number.
-	Q(20.3):GOTO:MassHealthWebAndPhone
+	Q(22.3):GOTO:MassHealthWebAndPhone
 A: I am all set, thank you.
-	Q(20.4):GOTO:AllSet
+	Q(22.4):GOTO:AllSet
 
 Q(NotEligible): Based on the information you have provided, you are most likely not eligible for MassHealth (Standard). You may be eligible for a different type of coverage under MassHealth. Would you like to speak with a MassHealth Representative?
 A: Yes
-	Q(21.1):GOTO:MassHealthPhone
+	Q(23.1):GOTO:MassHealthPhone
 A: No, I am all set
-	Q(21.2):GOTO:AllSet
+	Q(23.2):GOTO:AllSet
 
 
 
 Q(HelpNeeded): Based on your answers, we recommend that you speak with a MassHealth Customer Services Representative. Do you wish to speak with someone about MassHealth?
 A: Yes
-	Q(22.1):GOTO:MassHealthPhone
+	Q(24.1):GOTO:MassHealthPhone
 A: No
-	Q(22.2): I am sorry that we cannot help you at this time. Please leave feedback as to what information you needed so that we can fix this QNA to satisfy everyone's needs.
+	Q(24.2): I am sorry that we cannot help you at this time. Please leave feedback as to what information you needed so that we can fix this QNA to satisfy everyone's needs.
 	X:
-		Q(22.2.1): Thank you for your feedback. If you need further assistance, we recommend that you speak with a MassHealth Representative or look at MassHealth's Website.
+		Q(24.2.1): Thank you for your feedback. If you need further assistance, we recommend that you speak with a MassHealth Representative or look at MassHealth's Website.
 		A: I am all set, thank you.
 			Q(AllSet): Thank you for interacting with the MassHealth QNA! Have a great day!
 		A: I would like those phone numbers and the website information, please.
-			Q(22.2.1.2):GOTO:MassHealthWebAndPhone
+			Q(24.2.1.2):GOTO:MassHealthWebAndPhone
 
 
 
 Q(MoreInfoHousehold): According to the MassHealth Eligibility Packet, <a href="https://www.mass.gov/files/2017-08/aca-1-english-mb-lp.pdf">Eligibility Packet Link</a>, A household's countable income is the sum of the modified adjusted gross income of every individual included in the individual's household with the exception of children and other dependents who are not expected to file a tax return. The household consists of the taxpayer, the taxpayer's spouse, all persons that the taxpayer expects to claim as tax dependents, and the number of expected children. If you need more information, click the link and read pages 90-93. If you are disabled, further information is located on pages 93-94. Was this enough information for you to continue?
 A: Yes
-	Q(23.1):GOTO:Household	
+	Q(25.1):GOTO:Household	
 A: No
-	Q(23.2):GOTO:HelpNeeded
-
-
-
-
-
-
-
-
-
-
-
-
-
+	Q(25.2):GOTO:HelpNeeded
