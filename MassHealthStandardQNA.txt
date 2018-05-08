@@ -61,7 +61,7 @@ Phone Number for MassHealth Representative for individuals who are deaf, hard of
 A: No
 	DOC(1.2):
 MassHealth Link: http://www.mass.gov/eohhs/gov/departments/masshealth/
-	Q(1.2): Here is a link to the MassHealth Government website. <a href="http://www.mass.gov/eohhs/gov/departments/masshealth/">MassHealth</a>. If you are ready to proceed, just click residency.
+	Q(1.2): Here is a link to the MassHealth Government website. <a href="http://www.mass.gov/eohhs/gov/departments/masshealth/">MassHealth</a>. When you are ready to proceed, just click residency.
 	A: Residency
 		Q(1.2.1):GOTO:Residency
 
@@ -104,7 +104,19 @@ A: I don't know. What does that mean?
 	Q(2.3):GOTO:ResidencyRequirements
 
 DOC(3): MassHealth Requirements Link (copy/paste): https://www.mass.gov/service-details/eligibility-for-health-care-benefits-for-masshealth-the-health-safety-net-and
-Q(MassHealthResidencyNotEligible): You do not meet residency requirements for MassHealth. In order to meet residency requirements, you must (1) "live in Massachusetts and (2) either intent to reside in Massachusetts, with or without a fixed address, or have entered Massachusetts with a job commitment or seeking employment." <a href="https://www.mass.gov/service-details/eligibility-for-health-care-benefits-for-masshealth-the-health-safety-net-and">MassHealth</a>.
+Q(MassHealthResidencyNotEligible): You do not meet residency requirements for MassHealth. As such, you are not eligible for MassHealth Standard. How would you like to proceed?
+A: I would like to know the residency requirements for MassHealth Standard.
+	Q(3.1): In order to meet residency requirements, you must (1) "live in Massachusetts and (2) either intent to reside in Massachusetts, with or without a fixed address, or have entered Massachusetts with a job commitment or seeking employment." <a href="https://www.mass.gov/service-details/eligibility-for-health-care-benefits-for-masshealth-the-health-safety-net-and">MassHealth</a>.
+A: I would like to start from the beginning.
+	Q(3.2):GOTO:Begin
+A: I would like to see if I meet income and household requirements, even if I may not meet residency requirements.
+	Q(3.3):GOTO:MAGI
+A: I would like to open an email of action items.
+	Q(3.4):GOTO:DRAFT
+A: I am not sure.
+	Q(3.5):GOTO:next
+A: I am all set, thank you.
+	Q(3.6):GOTO:AllSet
 
 Q(MassHealthResidencyPossiblyEligible): Based on the information you have provided, we cannot determine if you meet residency requirements for MassHealth. We recommend that you speak with a MassHealth representative to determine if you are eligible based on residency requirements. Would you like more information about MassHealth Residency Requirements?
 A: Yes, I would like a description of the residency requirement. 
@@ -131,6 +143,8 @@ MassHealth Phone Number: Call the MassHealth Member Customer Service Center. The
 		Q(4.2.2):GOTO:AllSet
 	A: I would like to see if I meet income and household requirements, even if I may not meet residency requirements.
 		Q(4.2.3):GOTO:MAGI
+	A: I would like to open an email of action items.
+		Q(4.2.4):GOTO:DRAFT
 A: Yes, I would like to look at a website.
 	DOC(4.3):
 MassHealth Website Link (including Enrollment)(copy/paste): https://masshealthchoices.com/enroll
@@ -141,6 +155,8 @@ MassHealth Website Link (including Enrollment)(copy/paste): https://masshealthch
 		Q(4.3.2):GOTO:AllSet
 	A: I would like to see if I meet income and household requirements, even if I may not meet residency requirements.
 		Q(4.3.3):GOTO:MAGI
+	A: I would like to open an email of action items.
+		Q(4.3.4):GOTO:DRAFT
 A: Yes, I would like to look at a website and receive a phone number to call.
 	DOC(4.4):
 Call the MassHealth Member Customer Service Center. They can help! Toll-free number: 1-800-841-2900. TTY: 1-800-497-4648. Hours of operation: Monday – Friday, 8:00 a.m. – 5:00 p.m. We can speak with you in other languages. العربية | ខ្មែរ | 繁體中文 | Français | Kreyòl Ayisyen | λληνικά | ગુજરાતી | हिंदी | Italiano | 한국어 | Polski | Português | Русский | Español | Tiếng Việt. You can also visit this link (copy/paste): https://masshealthchoices.com/enroll.
@@ -151,6 +167,8 @@ Call the MassHealth Member Customer Service Center. They can help! Toll-free num
 		Q(4.4.2):GOTO:AllSet
 	A: I would like to see if I meet income and household requirements, even if I may not meet residency requirements.
 		Q(4.4.3):GOTO:MAGI
+	A: I would like to open an email of action items.
+		Q(4.4.4):GOTO:DRAFT
 A: No, thank you. I am all set.
 	Q(4.5):GOTO:AllSet
 
@@ -384,7 +402,7 @@ Q(NextFoster): Click on Federal Poverty Level to see if you are eligible for Mas
 A[javascript:if(fedpov(getvar('Household'),getvar('MAGI'),133)){goto('Eligible')}else{goto('Eligible')}]: Federal Poverty Level
 
 
-Q(Eligible): Based on the information you have provided, it seems more likely than not that you are eligible for MassHealth (Standard). MassHealth Representatives ultimately determine whether you are eligible after you apply. How would you like to apply?
+Q(Eligible): Based on the information you have provided, unless you do not meet the Residency Requirement, it seems more likely than not that you are eligible for MassHealth (Standard). MassHealth Representatives ultimately determine whether you are eligible after you apply. How would you like to apply?
 A: Online
 	DOC(21.1):
 Link to set up account so you can apply to MassHealth Standard (copy/paste): MAhealthconnector.org
@@ -392,7 +410,11 @@ Link to set up account so you can apply to MassHealth Standard (copy/paste): MAh
 	A: Yes
 		Q(21.1.1):GOTO:MassHealthPhone
 	A: No
-		Q(21.1.2):GOTO:AllSet
+		Q(21.1.2): Would you like to open an email of action items?
+		A: Yes
+			Q(21.1.2.1):GOTO:DRAFT
+		A: No
+			Q(21.1.2.2):GOTO:AllSet
 A: By Mail
 	DOC(21.2):
 Fill out this MassHealth Form (copy/paste link): https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf
@@ -401,7 +423,11 @@ Send form to the following address: Health Insurance Processing Center, P.O. Box
 	A: Yes
 		Q(21.2.1):GOTO:MassHealthPhone
 	A: No
-		Q(21.2.2):GOTO:AllSet
+		Q(21.2.2): Would you like to open an email of action items?
+		A: Yes
+			Q(21.2.2.1):GOTO:DRAFT
+		A: No
+			Q(21.2.2.2):GOTO:AllSet
 A: By Fax
 	DOC(21.3):
 Fill out the MassHealth Form at this link (copy/paste): https://masshealthchoices.com/sites/default/files/Documents/EF-MCO%20(Rev.%2010-17)_WEB_110317.pdf
@@ -410,9 +436,13 @@ Fax filled-out form to 1-857-323-8300.
 	A: Yes
 		Q(21.3.1):GOTO:MassHealthPhone
 	A: No
-		Q(21.3.2):GOTO:AllSet
+		Q(21.3.2): Would you like to open an email of action items?
+		A: Yes
+			Q(21.3.2.1):GOTO:DRAFT
+		A: No
+			Q(21.3.2.2):GOTO:AllSet
 A: By Phone
-	Q(21.4): Are you deaf, hard of hearing, or speech disabled? Do you need any further assistance?
+	Q(21.4): Are you deaf, hard of hearing, or speech disabled?
 	A: Yes
 		DOC(21.4.1):
 Call 1-800-497-4648 and a MassHealth Representative will assist you.
@@ -420,7 +450,11 @@ Call 1-800-497-4648 and a MassHealth Representative will assist you.
 		A: Yes
 			Q(21.4.1.1):GOTO:MassHealthPhone
 		A: No
-			Q(21.4.1.2):GOTO:AllSet
+			Q(21.4.1.2): Would you like to open an email of action items?
+			A: Yes
+				Q(21.4.1.2.1):GOTO:DRAFT
+			A: No
+				Q(21.4.1.2.2):GOTO:AllSet
 	A: No
 		DOC(21.4.2):
 Call 1-800-841-2900 or 1-877-MA ENROLL (1-877-623-6765). A MassHealth Representative will assist you in the enrollment process.
@@ -428,7 +462,11 @@ Call 1-800-841-2900 or 1-877-MA ENROLL (1-877-623-6765). A MassHealth Representa
 		A: Yes
 			Q(21.4.2.1):GOTO:MassHealthPhone
 		A: No
-			Q(21.4.2.2):GOTO:AllSet
+			Q(21.4.2.2): Would you like to open an email of action items?
+			A: Yes
+				Q(21.4.2.2.1):GOTO:DRAFT
+			A: No
+				Q(21.4.2.2.2):GOTO:AllSet
 A: In Person
 	DOC(21.5):
 To enroll in person, visit a MassHealth Enrollment Center. Enrollment Centers are located at the following addresses: (1) 45 Spruce St, Chelsea, MA 02150; (2) 88 Industry Avenue, Suite D, Springfield, MA 01104; (3) 21 Spring Street, Suite 4, Taunton, MA 02780; and (4) 367 East Street, Tewksbury, MA 01876. Please do not send an application to any of these enrollment centers as the application cannot be processed that way.
@@ -436,7 +474,11 @@ To enroll in person, visit a MassHealth Enrollment Center. Enrollment Centers ar
 	A: Yes
 		Q(21.5.1):GOTO:MassHealthPhone
 	A: No
-		Q(21.5.2):GOTO:AllSet
+		Q(21.5.2): Would you like to open an email of action items?
+		A: Yes
+			Q(21.5.2.1):GOTO:DRAFT
+		A: No
+			Q(21.5.2.2):GOTO:AllSet
 
 Q(PossiblyEligible): Based on the information you have provided, we cannot determine if you are eligible for MassHealth (Standard) at this time. It is likely that you qualify for a different type of coverage under MassHealth.  How would you like to proceed?
 A: I would like a phone number to call.
@@ -445,14 +487,18 @@ A: I would like to look at a website.
 	Q(22.2):GOTO:MassHealthEnrollWeb
 A: I would like to look at a website and receive a phone number.
 	Q(22.3):GOTO:MassHealthWebAndPhone
+A: I am all set, but I would like to open an email of action items.
+	Q(22.4):GOTO:DRAFT
 A: I am all set, thank you.
-	Q(22.4):GOTO:AllSet
+	Q(22.5):GOTO:AllSet
 
 Q(NotEligible): Based on the information you have provided, you are most likely not eligible for MassHealth (Standard). You may be eligible for a different type of coverage under MassHealth. Would you like to speak with a MassHealth Representative?
 A: Yes
 	Q(23.1):GOTO:MassHealthPhone
 A: No, I am all set
 	Q(23.2):GOTO:AllSet
+A: No, I am all set, but I would like to open an email of action items.
+	Q(23.3):GOTO:DRAFT
 
 Q(DRAFT): Alright, we'll draft an email. Note: This will only work if you have a default email setup on this device. If you're not sure if you do, you can go ahead and try. If it doesn't work, we'll just move on.
 A[javascript:mail2('','Benefits Finder',doc());]: Open draft email
@@ -464,6 +510,8 @@ A: Yes
 	A[https://suffolklitlab.github.io/benefit-finder/SNAPQNA.html]: SNAP: Supplemental Nutrition Assistance Program
 	A[https://suffolklitlab.github.io/benefit-finder/LIHEAPQNA.html]: LIHEAP (Fuel Assistance)
 	A[https://suffolklitlab.github.io/benefit-finder/WAPQNA.html]: Weatherization Assistance Program
+A: No
+	Q(25.2):GOTO:AllSet
 
 Q(HelpNeeded): Based on your answers, we recommend that you speak with a MassHealth Customer Services Representative. Do you wish to speak with someone about MassHealth?
 A: Yes
