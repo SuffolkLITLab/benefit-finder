@@ -429,24 +429,31 @@ A: Yes
 A: No, I am all set
 	Q(23.2):GOTO:AllSet
 
+Q(DRAFT): Alright, we'll draft an email. Note: This will only work if you have a default email setup on this device. If you're not sure if you do, you can go ahead and try. If it doesn't work, we'll just move on.
+A[javascript:mail2('','Benefits Finder',doc());]: Open draft email
+	Q(24.1): Wait a moment to see if a draft email opens. GOTO:next
 
+Q(next): Do you want to check eligibility for other benefits? 
+A: Yes
+	Q(25.1): Which benefit would you like to check next? Click on the benefit below to open the link.
+	A[https://suffolklitlab.github.io/benefit-finder/SNAPQNA.html]: SNAP: Supplemental Nutrition Assistance Program
+	A[https://suffolklitlab.github.io/benefit-finder/LIHEAPQNA.html]: LIHEAP (Fuel Assistance)
+	A[https://suffolklitlab.github.io/benefit-finder/MassHealthStandardQNA.html]: MassHealth Standard
 
 Q(HelpNeeded): Based on your answers, we recommend that you speak with a MassHealth Customer Services Representative. Do you wish to speak with someone about MassHealth?
 A: Yes
-	Q(24.1):GOTO:MassHealthPhone
+	Q(26.1):GOTO:MassHealthPhone
 A: No
-	Q(24.2): I am sorry that we cannot help you at this time. Please leave feedback as to what information you needed so that we can fix this QNA to satisfy everyone's needs.
+	Q(26.2): I am sorry that we cannot help you at this time. Please leave feedback as to what information you needed so that we can fix this QNA to satisfy everyone's needs.
 	X:
-		Q(24.2.1): Thank you for your feedback. If you need further assistance, we recommend that you speak with a MassHealth Representative or look at MassHealth's Website.
+		Q(26.2.1): Thank you for your feedback. If you need further assistance, we recommend that you speak with a MassHealth Representative or look at MassHealth's Website.
 		A: I am all set, thank you.
 			Q(AllSet): Thank you for interacting with the MassHealth QNA! Have a great day!
 		A: I would like those phone numbers and the website information, please.
-			Q(24.2.1.2):GOTO:MassHealthWebAndPhone
-
-
+			Q(26.2.1.2):GOTO:MassHealthWebAndPhone
 
 Q(MoreInfoHousehold): According to the MassHealth Eligibility Packet, <a href="https://www.mass.gov/files/2017-08/aca-1-english-mb-lp.pdf">Eligibility Packet Link</a>, A household's countable income is the sum of the modified adjusted gross income of every individual included in the individual's household with the exception of children and other dependents who are not expected to file a tax return. The household consists of the taxpayer, the taxpayer's spouse, all persons that the taxpayer expects to claim as tax dependents, and the number of expected children. If you need more information, click the link and read pages 90-93. If you are disabled, further information is located on pages 93-94. Was this enough information for you to continue?
 A: Yes
-	Q(25.1):GOTO:Household	
+	Q(27.1):GOTO:Household	
 A: No
-	Q(25.2):GOTO:HelpNeeded
+	Q(27.2):GOTO:HelpNeeded
