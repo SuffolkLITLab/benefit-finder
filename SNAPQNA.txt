@@ -40,10 +40,10 @@ body{
 <p>This is a class project under active development by Suffolk's <a href="http://suffolklitlab.org/" target="_blank">LIT Lab</a>. You should not rely on it as a source of legal information. It is incomplete. It is intended to be used by students of the Suffolk Law Clinical Program. </p>
 <p>This QNA is meant to determine if you or your client may qualify for SNAP (Supplemental Nutritional Assistance Program). Please proceed through the following questions as if you are the individual attempting to apply for SNAP. </p>
 
-After: <script src="https://github.com/SuffolkLITLab/benefit-finder/scripts.js"></script>
+After: <script src="https://suffolklitlab.github.io/benefit-finder/scripts.js"></script>
 
 DOC(1):Action Items: SNAP
-Link to Benefit Finder: https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html
+Link to Benefit Finder: https://suffolklitlab.github.io/benefit-finder/IntroBenefitsQNA.html
 
 Q(Begin):  Would you like to check your eligibility for SNAP?
 A: Yes
@@ -52,7 +52,7 @@ A: No
 	Q(1.2): You can find more information about SNAP at the Government website. <a href="https://www.mass.gov/snap-benefits-food-stamps">SNAP</a>. How do you wish to proceed?
 	A: I would like to save links for later.
 		DOC(1.2.1): 
-SNAP QNA Link for later (Copy/Paste Link): https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html
+SNAP QNA Link for later (Copy/Paste Link): https://suffolklitlab.github.io/benefit-finder/SNAPQNA.html
 SNAP Government Website Link for later (Copy/Paste Link): https://www.mass.gov/snap-benefits-food-stamps
 		Q(1.2.1):GOTO:SNAPQNALINK
 	A: I would like to keep going through this QNA now.
@@ -60,7 +60,7 @@ SNAP Government Website Link for later (Copy/Paste Link): https://www.mass.gov/s
 	A: I'm all set.
 		Q(1.2.3):GOTO:AllSet
 
-Q(SNAPQNALINK): Here is the SNAP QNA link for later, <a href="https://aambrogio.github.io/LIT-QNAs/SNAP%20V1.4.html">SNAP QNA Link</a>. Would you like to open a draft email with some action items? 
+Q(SNAPQNALINK): Here is the SNAP QNA link for later, <a href="https://suffolklitlab.github.io/benefit-finder/SNAPQNA.htmll">SNAP QNA Link</a>. Would you like to open a draft email with some action items? 
 A: Yes
 	Q(2.1):GOTO:DRAFT
 A: No
@@ -175,10 +175,8 @@ A[javascript:mail2('','Benefits Finder',doc());]: Open draft email
 Q(next): Do you want to check eligibility for other benefits? 
 A: Yes
 	Q(16.1): Which benefit would you like to check next? Click on the benefit below to open the link.
-	A[https://aambrogio.github.io/LIT-QNAs/WAPV1.6Edited.html]: Weatherization Assistance Program
-	A[https://aambrogio.github.io/LIT-QNAs/LIHEAPQNA2018.html]: LIHEAP (Fuel Assistance)
+	A[https://suffolklitlab.github.io/benefit-finder/WAPQNA.html]: Weatherization Assistance Program
+	A[https://suffolklitlab.github.io/benefit-finder/LIHEAPQNA.html]: LIHEAP (Fuel Assistance)
+	A[https://suffolklitlab.github.io/benefit-finder/MassHealthStandardQNA.html]: Mass Health Standard
 A: No
 	Q(AllSet): Have a nice day. 
-
-
-
