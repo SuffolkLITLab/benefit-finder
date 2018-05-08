@@ -177,6 +177,6 @@ A: Yes
 	Q(16.1): Which benefit would you like to check next? Click on the benefit below to open the link.
 	A[https://suffolklitlab.github.io/benefit-finder/WAPQNA.html]: Weatherization Assistance Program
 	A[https://suffolklitlab.github.io/benefit-finder/LIHEAPQNA.html]: LIHEAP (Fuel Assistance)
-	A[https://suffolklitlab.github.io/benefit-finder/MassHealthStandardQNA.html]: Mass Health Standard
+	A[https://suffolklitlab.github.io/benefit-finder/MassHealthStandardQNA.html]: MassHealth Standard
 A: No
 	Q(AllSet): Have a nice day. 
