@@ -13,7 +13,7 @@
 <p> (g)	Here is where you upload new benefit QnA Markups and edit the “IntroBenefitsQNA” (https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html) so users can access all benefit questionnaires from a central hub. </P>
 <p> (3)	In order to host a new benefit program QnA, follow the steps below: </p>
 <p> (a)	Open up the questionnaire you created in QnA Markup. It should look like the following: </p> 
-<p> ![qna screen shot 1](https://user-images.githubusercontent.com/34524600/39898608-7eb96314-5485-11e8-999a-1e7935777255.png) </p>
+<p> ![qna screen shot 1](https://user-images.githubusercontent.com/34524600/39898670-c8fcef7c-5485-11e8-8ce9-36500b3d398c.png) </p>
 <p> (b)	Once your QnA is open, you must convert the .txt file to a .html file. You do this by clicking the dropdown menu in the upper right-hand corner with “Interactive” as the default.  </p>
 <p> <img width="1268" alt="qna screen shot 2" src="https://user-images.githubusercontent.com/34524600/39898617-8ba04a48-5485-11e8-93eb-eb21f4950f8e.png"> </p>
 <p> (c)	After you locate the dropdown menu, select “HTML full page.” </p> 
