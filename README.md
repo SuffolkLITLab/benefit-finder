@@ -21,13 +21,13 @@
 <p> (d)	Then click “Save HTML to file.” FYI I am going to save a test file as the generic “QnA_page” for these instructions. </p> 
 
 <p> (e)	Locate the .html file you just created (it is likely in your “Downloads” folder) and upload it to the Benefit Finder GitHub repository. You can do this simply by clicking “Upload files.”  </p>
-
+<p> <img width="843" alt="github screen shot 2" src="https://user-images.githubusercontent.com/34524600/39898261-0022535e-5484-11e8-94dd-7bda20bb734f.png"> </p>
 <p> (f)	You can either drag and drop the .html file onto the screen itself or you can use “choose your files” to locate and upload it. I recommend dragging the file from your folder onto the screen as it is more efficient. </p> 
-
+<p> <img width="1253" alt="github screen shot 3" src="https://user-images.githubusercontent.com/34524600/39898324-3926bb5e-5484-11e8-9a8a-adb730221612.png"> </p>
 <p> (g)	After you drag the .html file onto the screen, you must click “Commit changes.” In GitHub “Commit changes” is akin to confirming the uploads or changes you have made. </p>
-
+<p> <img width="1248" alt="github screen shot 4" src="https://user-images.githubusercontent.com/34524600/39898354-55bd34e6-5484-11e8-8c7c-3adb4f95ac84.png"> </p>
 <p> (h)	Your .html file should now be located in the repository. </p> 
-
+<p> <img width="1271" alt="github screen shot 5" src="https://user-images.githubusercontent.com/34524600/39898385-6fda92ec-5484-11e8-86b5-429ed52c518b.png"> </p>
 <p> (i)	Now you can test whether or not the .html file is hosted by entering the following URL in your browser: http://suffolklitlab.org/benefit-finder/nameofyourhtmlfile. If you see your QnA in the browser, then it was hosted correctly. If you see a 404 error page, something went wrong. I would first ensure you typed the URL correct. If the URL is correct, I would consult with Professor Colarusso. </p>
 </p>
 <p> (4)	Assuming you did not run into problems hosting the new QnA, the next step is to “marry” it with the “IntroBenefitsQNA” to ensure users can access it from the central hub we created. It is relatively simple, but this requires replacing the existing “IntroBenefitsQNA.html” file with an updated file each time you add another benefit program. </p> 
