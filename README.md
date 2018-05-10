@@ -13,13 +13,13 @@
 <p> (g)	Here is where you upload new benefit QnA Markups and edit the “IntroBenefitsQNA” (https://aambrogio.github.io/LIT-QNAs/IntroBenefitsQNA.html) so users can access all benefit questionnaires from a central hub. </P>
 <p> (3)	In order to host a new benefit program QnA, follow the steps below: </p>
 <p> (a)	Open up the questionnaire you created in QnA Markup. It should look like the following: </p> 
-
+<p> ![qna screen shot 1](https://user-images.githubusercontent.com/34524600/39898608-7eb96314-5485-11e8-999a-1e7935777255.png) </p>
 <p> (b)	Once your QnA is open, you must convert the .txt file to a .html file. You do this by clicking the dropdown menu in the upper right-hand corner with “Interactive” as the default.  </p>
-
+<p> <img width="1268" alt="qna screen shot 2" src="https://user-images.githubusercontent.com/34524600/39898617-8ba04a48-5485-11e8-93eb-eb21f4950f8e.png"> </p>
 <p> (c)	After you locate the dropdown menu, select “HTML full page.” </p> 
-
+<p> <img width="1266" alt="qna screen shot 3" src="https://user-images.githubusercontent.com/34524600/39898631-9939c6e8-5485-11e8-8fa9-f8a5427dd60d.png"> </p>
 <p> (d)	Then click “Save HTML to file.” FYI I am going to save a test file as the generic “QnA_page” for these instructions. </p> 
-
+<p> <img width="1266" alt="qna screen shot 4" src="https://user-images.githubusercontent.com/34524600/39898641-a927e9c2-5485-11e8-92c5-2835933da8d1.png"> </p>
 <p> (e)	Locate the .html file you just created (it is likely in your “Downloads” folder) and upload it to the Benefit Finder GitHub repository. You can do this simply by clicking “Upload files.”  </p>
 <p> <img width="843" alt="github screen shot 2" src="https://user-images.githubusercontent.com/34524600/39898261-0022535e-5484-11e8-94dd-7bda20bb734f.png"> </p>
 <p> (f)	You can either drag and drop the .html file onto the screen itself or you can use “choose your files” to locate and upload it. I recommend dragging the file from your folder onto the screen as it is more efficient. </p> 
