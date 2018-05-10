@@ -6,7 +6,7 @@
 <p> (a) Create a GitHub account at https://github.com/join/. </p>
 <p> (b) Request access to the GitHub repository from Professor Colarusso. </p>
 <p> (c) You should see the following on your computer screen: </p>
-<p> https://github.com/SuffolkLITLab/benefit-finder/blob/master/Public%20Benefits%20Finder%20How-To/How-To%20Screen%20Shots/GitHub%20Screen%20Shot%20(1).png </p>
+<p> http://suffolklitlab.org/SuffolkLITLab/benefit-finder/blob/master/Public%20Benefits%20Finder%20How-To/How-To%20Screen%20Shots/GitHub%20Screen%20Shot%20(1).png </p>
 <p> (d)	The “Public Benefits Finder Documents” folder contains a backup of our work on the project including, but not limited to, QnA files, research, and the 2018 Clinnovation Presentation. </p>
 <p> (e)	The additional .txt files (e.g. SNAPQNA.txt) and their corresponding .html (SNAPQNA.html) files are the live questionnaires. </p>
 <p> (f)	The JavaScript file (script.js) is referenced in the Public Benefits Finder for calculations in regard to the Federal Poverty Guidelines. </p>
